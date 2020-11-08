@@ -362,7 +362,7 @@ function love.keypressed(key)
                 gameState = 'start' 
             end
 
-
+        end
     
 
 
