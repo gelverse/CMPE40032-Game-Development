@@ -382,18 +382,53 @@ function love.draw()
 
     love.graphics.clear(40/255, 45/255, 52/255, 255/255)
     
-    -- render different things depending on which part of the game we're in
-    if gameState == 'start' then
+    -- render different things depending on which part of the game we're in 
+    if  gameState == 'setup' then
+        love.graphics.setFont(smallFont)
+        love.graphics.printf('Welcome to Pong!', 0, 10, VIRTUAL_WIDTH, 'center')
+        love.graphics.printf('Select your player type!', 0, 24, VIRTUAL_WIDTH, 'center')
+        if player1role then
+            love.graphics.printf(player1role, 0, 50, VIRTUAL_WIDTH/2, 'center')
+        else 
+            love.graphics.setFont(smallFont)
+            love.graphics.printf('W', 0, 90, VIRTUAL_WIDTH/2, 'center')
+            love.graphics.printf('Living Org', 0, 100, VIRTUAL_WIDTH/2, 'center')
+            love.graphics.printf('S', 0, 150, VIRTUAL_WIDTH/2, 'center')
+            love.graphics.printf('AI', 0, 160, VIRTUAL_WIDTH/2, 'center')
+            love.graphics.setFont(largeFont)
+            love.graphics.printf('Player 1', 0, 50, VIRTUAL_WIDTH/2, 'center')
+        end
+        
+        love.graphics.setFont(smallFont)
+
+        if player2role then
+            love.graphics.printf(player2role, 0, 50, VIRTUAL_WIDTH/2, 'center')
+        else 
+            love.graphics.setFont(smallFont)
+            love.graphics.printf('W', VIRTUAL_WIDTH/2, 90, VIRTUAL_WIDTH/2, 'center')
+            love.graphics.printf('Living Org', VIRTUAL_WIDTH/2, 100, VIRTUAL_WIDTH/2, 'center')
+            love.graphics.printf('S', VIRTUAL_WIDTH/2, 150, VIRTUAL_WIDTH/2, 'center')
+            love.graphics.printf('AI', VIRTUAL_WIDTH/2, 160, VIRTUAL_WIDTH/2, 'center')
+            love.graphics.setFont(largeFont)
+            love.graphics.printf('Player 2', VIRTUAL_WIDTH/2, 50, VIRTUAL_WIDTH/2, 'center')
+        end
+
+    elseif gameState == 'start' then
         -- UI messages
         love.graphics.setFont(smallFont)
         love.graphics.printf('Welcome to Pong!', 0, 10, VIRTUAL_WIDTH, 'center')
-        love.graphics.printf('Press Enter to begin!', 0, 20, VIRTUAL_WIDTH, 'center')
+        love.graphics.printf('Press Enter to begin!', 0, 22, VIRTUAL_WIDTH, 'center')
+        love.graphics.printf('Press backspace to return to player type selection', 0, 35, VIRTUAL_WIDTH, 'center')
+        love.graphics.printf(player1role, 0, 50, VIRTUAL_WIDTH/2, 'center')
+        love.graphics.printf(player2role, VIRTUAL_WIDTH/2, 50, VIRTUAL_WIDTH/2, 'center')
+
     elseif gameState == 'serve' then
         -- UI messages
         love.graphics.setFont(smallFont)
         love.graphics.printf('Player ' .. tostring(servingPlayer) .. "'s serve!", 
             0, 10, VIRTUAL_WIDTH, 'center')
         love.graphics.printf('Press Enter to serve!', 0, 20, VIRTUAL_WIDTH, 'center')
+
     elseif gameState == 'play' then
         -- no UI messages to display in play
     elseif gameState == 'done' then
@@ -403,6 +438,7 @@ function love.draw()
             0, 10, VIRTUAL_WIDTH, 'center')
         love.graphics.setFont(smallFont)
         love.graphics.printf('Press Enter to restart!', 0, 30, VIRTUAL_WIDTH, 'center')
+        love.graphics.printf('Press Backspace to return to player type selection', 0, 40, VIRTUAL_WIDTH, 'center')
     end
 
     -- show the score before ball is rendered so it can move over the text
