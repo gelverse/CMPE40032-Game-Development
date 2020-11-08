@@ -259,20 +259,19 @@ function love.update(dt)
            
     -- player 2 
     if player2.AInt then
-        if ball.dx > 0 and ball.x > (ball.dx * 0.7) - 15 then
+        if ball.dx > 0 and ball.x > (ball.dx * 0.7) + 15 then
             if ball.y < player2.y then
-                player2.dy = -PADDLE_SPEED 
+                player2.dy = -PADDLE_SPEED
             elseif ball.y + ball.height > player2.y + player2.height then
                 player2.dy = PADDLE_SPEED
-            else 
+            else
                 player2.dy = 0
-            end 
-
-        else 
+            end
+        else
             player2.dy = 0
         end
     else
-        if love.keyboard.isDown('up') 
+        if love.keyboard.isDown('up') then
             player2.dy = -PADDLE_SPEED
         elseif love.keyboard.isDown('down') then
             player2.dy = PADDLE_SPEED
@@ -406,9 +405,9 @@ function love.draw()
             love.graphics.printf(player2role, 0, 50, VIRTUAL_WIDTH/2, 'center')
         else 
             love.graphics.setFont(smallFont)
-            love.graphics.printf('W', VIRTUAL_WIDTH/2, 90, VIRTUAL_WIDTH/2, 'center')
+            love.graphics.printf('UP', VIRTUAL_WIDTH/2, 90, VIRTUAL_WIDTH/2, 'center')
             love.graphics.printf('Living Org', VIRTUAL_WIDTH/2, 100, VIRTUAL_WIDTH/2, 'center')
-            love.graphics.printf('S', VIRTUAL_WIDTH/2, 150, VIRTUAL_WIDTH/2, 'center')
+            love.graphics.printf('DOWN', VIRTUAL_WIDTH/2, 150, VIRTUAL_WIDTH/2, 'center')
             love.graphics.printf('AI', VIRTUAL_WIDTH/2, 160, VIRTUAL_WIDTH/2, 'center')
             love.graphics.setFont(largeFont)
             love.graphics.printf('Player 2', VIRTUAL_WIDTH/2, 50, VIRTUAL_WIDTH/2, 'center')
