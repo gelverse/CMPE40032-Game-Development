@@ -94,8 +94,13 @@ function love.load()
     player1 = Paddle(10, 30, 5, 20)
     player2 = Paddle(VIRTUAL_WIDTH - 10, VIRTUAL_HEIGHT - 30, 5, 20)
 
+    player1role = nil
+    player2role = nil
+
     -- place a ball in the middle of the screen
     ball = Ball(VIRTUAL_WIDTH / 2 - 2, VIRTUAL_HEIGHT / 2 - 2, 4, 4)
+
+    ballstartposition = 0 
 
     -- initialize score variables
     player1Score = 0
@@ -114,7 +119,7 @@ function love.load()
     -- 2. 'serve' (waiting on a key press to serve the ball)
     -- 3. 'play' (the ball is in play, bouncing between paddles)
     -- 4. 'done' (the game is over, with a victor, ready for restart)
-    gameState = 'start'
+    gameState = 'setup'
 end
 
 --[[
