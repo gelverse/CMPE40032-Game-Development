@@ -259,14 +259,15 @@ function love.update(dt)
            
     -- player 2 
     if player2.AInt then
-        if ball.dx < 0 and ball.x + ball.width < VIRTUAL_WIDTH + (ball.dx * 0.7) - 15 then
+        if ball.dx > 0 and ball.x > (ball.dx * 0.7) - 15 then
             if ball.y < player2.y then
                 player2.dy = -PADDLE_SPEED 
             elseif ball.y + ball.height > player2.y + player2.height then
                 player2.dy = PADDLE_SPEED
             else 
                 player2.dy = 0
-            end
+            end 
+
         else 
             player2.dy = 0
         end
