@@ -326,6 +326,49 @@ function love.keypressed(key)
                 servingPlayer = 1
             end
         end
+
+    elseif key == 'backspace' then
+        gameState = 'setup'
+        player1role = nil
+        player2role =  nil
+        ball:reset()
+        player1Score = 0
+        player2Score = 0
+        servingPlayer = 1
+
+    elseif gameState == 'setup' then
+        if key == 'w' and not player1role then 
+            player1.AInt = false
+            player1role = 'player 1 is a living organism'
+            if player2role then
+                gameState = 'start'
+            end
+        elseif key == 's' and not player1role then
+            player1.AInt = true 
+            player1role = 'player 1 is an AI'
+            if player2role then
+                gameState = 'start' 
+            end
+        elseif key == 'up' and not player2role then 
+            player2.AInt = false
+            player2role = 'player 2 is a living organism'
+            if player1role then
+                gameState = 'start'
+            end
+        elseif key == 'down' and not player2role then
+            player2.AInt = true 
+            player2role = 'player 2 is an AI'
+            if player1role then
+                gameState = 'start' 
+            end
+
+
+    
+
+
+
+
+
     end
 end
 
