@@ -32,6 +32,9 @@ function Paddle:init(x, y, width, height)
     self.width = width
     self.height = height
     self.dy = 0
+
+    self.AInt = false
+    
 end
 
 function Paddle:update(dt)
