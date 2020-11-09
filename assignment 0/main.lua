@@ -479,7 +479,7 @@ end
 function displayFPS()
     -- simple FPS display across all states
     love.graphics.setFont(smallFont)
-    love.graphics.setColor(1, 0.4, 0.7)
+    love.graphics.setColor(0.2, 0.9, 0.6)
     love.graphics.print('FPS: ' .. tostring(love.timer.getFPS()), 10, 10)
-    love.graphics.setColor(1, 0.4, 0.7)
+    love.graphics.setColor(0.2, 0.9, 0.6)
 end
