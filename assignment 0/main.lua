@@ -380,7 +380,7 @@ function love.draw()
     -- begin drawing with push, in our virtual resolution
     push:start()
     
-    love.graphics.setBackgroundColor(0, 255, 255)
+    love.graphics.setBackgroundColor(0, 128, 128)
 
     love.graphics.clear(40/255, 45/255, 52/255, 255/255)
     love.graphics.clear(love.graphics.getBackgroundColor())
