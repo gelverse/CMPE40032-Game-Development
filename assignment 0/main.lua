@@ -381,8 +381,7 @@ function love.draw()
     push:start()
 
     
-
-    love.graphics.setColor(008080)
+    love.graphics.setColor(0, 250, 154)
 
     love.graphics.clear(40/255, 45/255, 52/255, 255/255)
     
