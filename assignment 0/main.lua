@@ -380,8 +380,8 @@ function love.draw()
     -- begin drawing with push, in our virtual resolution
     push:start()
     
-    love.graphics.setBackgroundColor(0, 0.9, 0.6)
-    love.graphics.setColor(0, 0.4, 0.3)
+    love.graphics.setColor(0, 0.9, 0.6)
+    love.graphics.setBackgroundColor(0, 0.4, 0.3)
 
     love.graphics.clear(40/255, 45/255, 52/255, 255/255)
     love.graphics.clear(love.graphics.getBackgroundColor())
@@ -479,7 +479,7 @@ end
 function displayFPS()
     -- simple FPS display across all states
     love.graphics.setFont(smallFont)
-    love.graphics.setColor(0, 255, 0, 255)
+    love.graphics.setColor(1, 0.4, 0.7)
     love.graphics.print('FPS: ' .. tostring(love.timer.getFPS()), 10, 10)
-    love.graphics.setColor(255, 255, 255, 255)
+    love.graphics.setColor(1, 0.4, 0.7)
 end
