@@ -74,10 +74,6 @@ function love.update(dt)
     groundScroll = (groundScroll + GROUND_SCROLL_SPEED * dt)
         % VIRTUAL_WIDTH
 
-    bird:update(dt)
-
-    love.keyboard.keysPressed = {}
-
     spawnTimer = spawnTimer + dt
 
     if spawnTimer > 2 then
@@ -95,6 +91,8 @@ function love.update(dt)
             table.remove(pipes, k)
         end
     end
+
+    love.keyboard.keysPressed = {}
 end
 function love.draw()
 
